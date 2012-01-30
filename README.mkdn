@@ -1,0 +1,16 @@
+# Ann's Sanity
+
+A game being developed in Unity 3D
+
+## About
+
+**Ann's Sanity** is the story of a patient a Mental Institution who is
+looking for a way out. Unfortunately, she has a limited amount of time
+to escape the facility. If time runs out before she is able to escape,
+she goes back in time and is forced to start the process all over
+again.
+
+Ann's Sanity is a top down 2D puzzle/adventure game. 
+
+The intial game was created in Philadelphia during the 2012 Global
+Game Jam.
