@@ -98,7 +98,7 @@ public class CrazyBastard : MonoBehaviour {
 			inventory.ToggleInterface();
 		}
 		
-		UpdateSprite();
+		//UpdateSprite();
 	}
 	
 	
@@ -144,36 +144,49 @@ public class CrazyBastard : MonoBehaviour {
 		controller.transform.rotation = Quaternion.identity;
 		controller.transform.RotateAround(controller.transform.position, new Vector3(0, 0, 1), ChangeHeading(horiz, vert));
 		
+		bool run = false;
+		
+		if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+		{
+			run = true;
+		}
+		else
+		{
+			run = false;
+		}
+		
+		movementSpeed = run ? 4.50f : 2.25f;
+		
 		//Move Character
 		controller.Move(moveDirection * Time.deltaTime * movementSpeed);
 	}
 	
-	private void UpdateSprite()
-	{
-		/*if(bMoving)
-		{
-			accumFrameS += Time.deltaTime;
-			if (accumFrameS >= frameS)
-			{
-				accumFrameS = 0.0f;
-				frame += 1;
-				if (frame == numFrames)
-				{
-					frame = 0;
-				}
-			}
-		}
-		else if(bMoving == false)
-		{
-			frame = 0;
-		}
-		Debug.Log (frame);
-		//render code below here
-		float offsetX; 
-		offsetX = (float)(frame / numFrames);
-		//Debug.Log (offsetX);
-		renderer.material.mainTextureOffset = new Vector2((float)frame * offsetX, 0.0f);*/
-	}
+//	private void UpdateSprite()
+//	{
+//		/*if(bMoving)
+//		{
+//			accumFrameS += Time.deltaTime;
+//			if (accumFrameS >= frameS)
+//			{
+//				accumFrameS = 0.0f;
+//				frame += 1;
+//				if (frame == numFrames)
+//				{
+//					frame = 0;
+//				}
+//			}
+//		}
+//		else if(bMoving == false)
+//		{
+//			frame = 0;
+//		}
+//		Debug.Log (frame);
+//		//render code below here
+//		float offsetX; 
+//		offsetX = (float)(frame / numFrames);
+//		//Debug.Log (offsetX);
+//		renderer.material.mainTextureOffset = new Vector2((float)frame * offsetX, 0.0f);*/
+//	}
 	
 	
 	private float ChangeHeading(float horiz, float vert) {
