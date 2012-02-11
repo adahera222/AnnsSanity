@@ -155,7 +155,7 @@ public class CrazyBastard : MonoBehaviour {
 			run = false;
 		}
 		
-		movementSpeed = run ? 4.50f : 2.25f;
+		movementSpeed = run ? 3.50f : 2.25f;
 		
 		//Move Character
 		controller.Move(moveDirection * Time.deltaTime * movementSpeed);
