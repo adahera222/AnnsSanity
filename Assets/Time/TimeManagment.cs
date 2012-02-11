@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TimeManagment : MonoBehaviour
 {
-	private const float CONST_LevelResetTime = 10.0f;//120.0f;
+	private const float CONST_LevelResetTime = 120.0f;
 	private const float CONST_HoursTilCrazy = 12;
 	public float currentTimeLeft;
 	private float timeLeftAsHours;

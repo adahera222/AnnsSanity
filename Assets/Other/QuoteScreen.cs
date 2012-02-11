@@ -49,6 +49,7 @@ public class QuoteScreen : MonoBehaviour {
 	
 	IEnumerator SetUpLevel()
 	{
+		yield return new WaitForSeconds(1.5f);
 		try
 		{
 			player = GameObject.FindGameObjectWithTag("Player").GetComponent<CrazyBastard>();
@@ -74,7 +75,7 @@ public class QuoteScreen : MonoBehaviour {
 		{
 			inventory.ToggleInterface();
 		}
-		yield return new WaitForSeconds(4.0f);
+		yield return new WaitForSeconds(animation["QuoteAnimation"].length - 1.75f);
 		
 		if(player)
 		player.EnableMove = true;
