@@ -89,7 +89,7 @@ public class CrazyBastard : MonoBehaviour {
 		if(enableMove)
 		Move();
 		
-		if(Input.GetButtonDown("Fire1")) {
+		if(Input.GetButtonDown("Fire1") && !TimeManagment.isTimePaused) {
 			Use();
 		}
 		
