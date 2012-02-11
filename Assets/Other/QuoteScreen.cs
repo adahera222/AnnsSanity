@@ -74,7 +74,7 @@ public class QuoteScreen : MonoBehaviour {
 		{
 			inventory.ToggleInterface();
 		}
-		yield return new WaitForSeconds(3.0f);
+		yield return new WaitForSeconds(4.0f);
 		
 		if(player)
 		player.EnableMove = true;
