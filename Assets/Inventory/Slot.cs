@@ -193,6 +193,17 @@ public class Slot : MonoBehaviour {
 		}
 	}
 	
+	void OnLevelWasLoaded(int x)
+	{
+		if(x < 8)
+		{
+			if(selectBG.renderer.enabled)
+			{
+				selectBG.renderer.enabled = false;
+			}
+		}
+	}
+	
 	#endregion
 	
 	private class NestedSlot
