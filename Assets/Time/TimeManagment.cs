@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TimeManagment : MonoBehaviour
 {
-	private const float CONST_LevelResetTime = 120.0f;
+	private const float CONST_LevelResetTime = 	120.0f;
 	private const float CONST_HoursTilCrazy = 12;
 	public float currentTimeLeft;
 	private float timeLeftAsHours;
@@ -37,7 +37,7 @@ public class TimeManagment : MonoBehaviour
 	// Use this for initialization
 	IEnumerator Start ()
 	{
-		isTimePaused = true;
+		//isTimePaused = true;
 		
 		this.elapsedTime = 0.0f;
 		
@@ -50,9 +50,9 @@ public class TimeManagment : MonoBehaviour
 		
 		StartCoroutine(FindGameLight());
 		
-		yield return new WaitForSeconds(6.0f);
-		
-		isTimePaused = false;
+		yield return new WaitForSeconds(1.0f);
+//		
+//		isTimePaused = false;
 		StartCoroutine(gameLight.FadeToMadness(CONST_LevelResetTime, null));
 		
 		
@@ -102,14 +102,14 @@ public class TimeManagment : MonoBehaviour
 		}
 	}
 	
-	IEnumerator OnLevelWasLoaded(int x)
+	void OnLevelWasLoaded(int x)
 	{
-		if(x <= 7)
-		{
-			isTimePaused = true;
-			yield return new WaitForSeconds(6.0f);
-			isTimePaused = false;
-		}
+//		if(x <= 7)
+//		{
+//			isTimePaused = true;
+//			yield return new WaitForSeconds(6.0f);
+//			isTimePaused = false;
+//		}
 	}
 	
 	/// <summary>

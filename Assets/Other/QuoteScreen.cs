@@ -49,6 +49,8 @@ public class QuoteScreen : MonoBehaviour {
 	
 	IEnumerator SetUpLevel()
 	{
+		TimeManagment.isTimePaused = true;
+		
 		yield return new WaitForSeconds(1.5f);
 		try
 		{
@@ -79,6 +81,8 @@ public class QuoteScreen : MonoBehaviour {
 		
 		if(player)
 		player.EnableMove = true;
+		
+		TimeManagment.isTimePaused = false;
 
 	}
 	
