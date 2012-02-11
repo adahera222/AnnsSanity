@@ -14,6 +14,7 @@ public class GuardCrazyGuy : MonoBehaviour {
 	
 	//Crazy person
 	public GameObject crazyGuy;
+	public GameObject crazyGuyRenderer;
 	
 	//Guard
 	public GameObject Guard;
@@ -54,5 +55,7 @@ public class GuardCrazyGuy : MonoBehaviour {
 		Guard.renderer.enabled = true;
 		yield return new WaitForSeconds(17.0f);
 		player.EnableMove = true;
+		crazyGuyRenderer.renderer.enabled = false;
+		Guard.renderer.enabled = false;
 	}
 }
