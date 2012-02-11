@@ -32,7 +32,7 @@ public class TimeManagment : MonoBehaviour
 	// Use this for initialization
 	IEnumerator Start ()
 	{
-		this.isTimePaused = false;
+		this.isTimePaused = true;
 		
 		this.elapsedTime = 0.0f;
 		
@@ -46,6 +46,12 @@ public class TimeManagment : MonoBehaviour
 		StartCoroutine(FindGameLight());
 		yield return new WaitForSeconds(1.0f);
 		StartCoroutine(gameLight.FadeToMadness(CONST_LevelResetTime, () => {gameLight.ResetLight();}));
+		
+		yield return new WaitForSeconds(5.0f);
+		
+		isTimePaused = false;
+		
+		
 	}
 	
 	/// <summary>
@@ -101,10 +107,14 @@ public class TimeManagment : MonoBehaviour
 		}
 	}
 	
-	void OnLevelWasLoaded(int x)
+	IEnumerator OnLevelWasLoaded(int x)
 	{
-		//if(x <= 7)
-		//StartCoroutine(FindGameLight());
+		if(x <= 7)
+		{
+			isTimePaused = true;
+			yield return new WaitForSeconds(6.0f);
+			isTimePaused = false;
+		}
 	}
 	
 	/// <summary>
