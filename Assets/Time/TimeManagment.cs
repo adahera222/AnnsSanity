@@ -88,17 +88,17 @@ public class TimeManagment : MonoBehaviour
 			// todo: make this a level that stops everything
 			// dims the scene and resets everything.
 			
-			if (OnWorldReset != null)
-			{
-				OnWorldReset();
-				Debug.Log("Trying to reset world.");
-			}
+//			if (OnWorldReset != null)
+//			{
+//				OnWorldReset();
+//				Debug.Log("Trying to reset world.");
+//			}
 			
 			StartCoroutine(Reset());
 			
-			++daysPassed;
-			
-			Application.LoadLevel("AnnasRoom");
+//			++daysPassed;
+//			
+//			Application.LoadLevel("AnnasRoom");
 		}
 	}
 	
@@ -127,6 +127,17 @@ public class TimeManagment : MonoBehaviour
 	
 	public IEnumerator Reset()
 	{
+		if (OnWorldReset != null)
+		{
+			OnWorldReset();
+			Debug.Log("Trying to reset world.");
+		}
+		
+		++daysPassed;
+			
+		Application.LoadLevel("AnnasRoom");
+		
+		
 		this.elapsedTime = 0.0f;
 		this.currentTimeLeft = CONST_LevelResetTime;
 		time = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
