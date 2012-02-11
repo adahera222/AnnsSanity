@@ -27,8 +27,9 @@ public class GameCamera : MonoBehaviour {
 	{
 		if(follow)
 		{
-			follow = false;
-			yield return new WaitForSeconds(6.0f);		
+//			follow = false;
+//			yield return new WaitForSeconds(6.0f);	
+			yield return new WaitForSeconds(0.5f);
 			FindPlayer();
 			follow = true;
 		}

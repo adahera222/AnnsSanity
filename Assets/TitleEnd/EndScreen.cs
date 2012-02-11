@@ -18,6 +18,7 @@ public class EndScreen : MonoBehaviour {
 	IEnumerator Start () 
 	{
 		
+		TimeManagment.isTimePaused = true;
 		
 		StartCoroutine(endMusic.FadeIn(endMusic.clip, 2.0f, null));
 		QuoteScreen.verseOne = false;
