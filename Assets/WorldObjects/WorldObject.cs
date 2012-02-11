@@ -38,7 +38,7 @@ public class WorldObject : MonoBehaviour {
 	}
 	
 	protected virtual void OnTriggerEnter(Collider other) {
-		Debug.Log("collision");
+		//Debug.Log("collision");
 		CrazyBastard crazyBastard = getPlayer();
 		crazyBastard.currentlyCollidedWorldObject = this;
     }
