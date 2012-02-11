@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TimeManagment : MonoBehaviour
 {
-	private const float CONST_LevelResetTime = 120.0f;
+	private const float CONST_LevelResetTime = 10.0f;//120.0f;
 	private const float CONST_HoursTilCrazy = 12;
 	public float currentTimeLeft;
 	private float timeLeftAsHours;
@@ -12,7 +12,7 @@ public class TimeManagment : MonoBehaviour
 	private DateTime time;
 	private static int daysPassed = 1;
 	
-	public bool isTimePaused;
+	public static bool isTimePaused;
 	
 	private float elapsedTime;
 	
@@ -20,6 +20,11 @@ public class TimeManagment : MonoBehaviour
 	public static event WorldResetDelegate OnWorldReset;
 	
 	Light gameLight;
+	
+	public static float ResetTime
+	{
+		get{return CONST_LevelResetTime;}
+	}
 	
 	void Awake()
 	{
@@ -32,7 +37,7 @@ public class TimeManagment : MonoBehaviour
 	// Use this for initialization
 	IEnumerator Start ()
 	{
-		this.isTimePaused = true;
+		isTimePaused = true;
 		
 		this.elapsedTime = 0.0f;
 		
@@ -44,12 +49,11 @@ public class TimeManagment : MonoBehaviour
 		time = time.AddDays(daysPassed);
 		
 		StartCoroutine(FindGameLight());
-		yield return new WaitForSeconds(1.0f);
-		StartCoroutine(gameLight.FadeToMadness(CONST_LevelResetTime, () => {gameLight.ResetLight();}));
 		
-		yield return new WaitForSeconds(5.0f);
+		yield return new WaitForSeconds(6.0f);
 		
 		isTimePaused = false;
+		StartCoroutine(gameLight.FadeToMadness(CONST_LevelResetTime, null));
 		
 		
 	}
@@ -61,7 +65,7 @@ public class TimeManagment : MonoBehaviour
 	/// </summary>
 	void Update ()
 	{
-		if (!this.isTimePaused)
+		if (!isTimePaused)
 		{
 			this.elapsedTime += Time.deltaTime;
 			
@@ -90,20 +94,11 @@ public class TimeManagment : MonoBehaviour
 				Debug.Log("Trying to reset world.");
 			}
 			
-			this.Reset();
+			StartCoroutine(Reset());
 			
 			++daysPassed;
 			
 			Application.LoadLevel("AnnasRoom");
-		}
-	}
-	
-
-	void LateUpdate()
-	{
-		if(!gameLight)
-		{
-			
 		}
 	}
 	
@@ -125,21 +120,24 @@ public class TimeManagment : MonoBehaviour
 		yield return new WaitForSeconds(1.0f);
 		if(!gameLight)
 		{
-			Debug.Log("Finding Light");
+			//Debug.Log("Finding Light");
 			gameLight = GameObject.FindGameObjectWithTag("GameLight").GetComponent<Light>();
 		}
 	}
 	
-	public void Reset()
+	public IEnumerator Reset()
 	{
 		this.elapsedTime = 0.0f;
 		this.currentTimeLeft = CONST_LevelResetTime;
-		gameLight.FadeToMadness(CONST_LevelResetTime, () => {gameLight.ResetLight();});
-		
 		time = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
 		
 		time = time.AddHours(9);
 		time = time.AddDays(daysPassed);
+		
+		yield return new WaitForSeconds(2.0f);
+		
+		gameLight.color = Color.white;
+		StartCoroutine(gameLight.FadeToMadness(CONST_LevelResetTime, null));
 	}
 	
 	/// <summary>

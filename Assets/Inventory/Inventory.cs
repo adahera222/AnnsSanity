@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour {
 	
 	void OnEnable()
 	{
-		Debug.Log("Adding again?");
+		//Debug.Log("Adding again?");
 		TimeManagment.OnWorldReset += this.OnWorldReset();
 	}
 	

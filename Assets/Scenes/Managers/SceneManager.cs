@@ -32,7 +32,7 @@ public class SceneManager : MonoBehaviour {
 	{
 		if(GameObject.FindGameObjectWithTag("Inventory") == null)
 		{
-			Debug.LogWarning("Loading Inventory");
+			//Debug.LogWarning("Loading Inventory");
 			inventory = Instantiate(Resources.Load("Inventory")) as GameObject;
 			
 			if (inventory != null)
@@ -43,7 +43,7 @@ public class SceneManager : MonoBehaviour {
 		}
 		else
 		{
-			Debug.LogWarning("Inventory Already Exist");
+			//Debug.LogWarning("Inventory Already Exist");
 		}
 	}
 	
@@ -54,7 +54,7 @@ public class SceneManager : MonoBehaviour {
 	{
 		if(GameObject.FindGameObjectWithTag("Player") == null)
 		{
-			Debug.LogWarning("Loading Anna");
+			//Debug.LogWarning("Loading Anna");
 			player = Instantiate(Resources.Load("Player")) as GameObject;
 			
 			if (player != null)
@@ -69,7 +69,7 @@ public class SceneManager : MonoBehaviour {
 		}
 		else
 		{
-			Debug.LogWarning("Anna Already Exist");
+			//Debug.LogWarning("Anna Already Exist");
 		}
 	}
 	
@@ -80,7 +80,7 @@ public class SceneManager : MonoBehaviour {
 	{
 		if (GameObject.FindGameObjectWithTag("TimeLeftObject") == null)
 		{
-			Debug.LogWarning("Loading TimeLeft");
+			//Debug.LogWarning("Loading TimeLeft");
 			
 			timeLeft = Instantiate(Resources.Load("TimeLeftObject")) as GameObject;
 			
@@ -96,7 +96,7 @@ public class SceneManager : MonoBehaviour {
 		}
 		else
 		{
-			Debug.LogWarning("TimeLeft Already exists");
+			//Debug.LogWarning("TimeLeft Already exists");
 		}
 	}
 	
@@ -104,7 +104,7 @@ public class SceneManager : MonoBehaviour {
 	{
 		if (GameObject.FindGameObjectWithTag("MessageManager") == null)
 		{
-			Debug.LogWarning("Loading MessageManager");
+			//Debug.LogWarning("Loading MessageManager");
 			
 			messageManager = Instantiate(Resources.Load("MessageManager")) as GameObject;
 			
@@ -120,7 +120,7 @@ public class SceneManager : MonoBehaviour {
 		}
 		else
 		{
-			Debug.LogWarning("MessageManager already exists");
+			//Debug.LogWarning("MessageManager already exists");
 		}
 	}
 	
@@ -128,7 +128,7 @@ public class SceneManager : MonoBehaviour {
 	{
 		if(GameObject.FindGameObjectWithTag("AudioManager") == null)
 		{
-			Debug.LogWarning("Loading AudioManager");
+			//Debug.LogWarning("Loading AudioManager");
 			audioManager = Instantiate(Resources.Load("AudioManager")) as GameObject;
 			
 			if(audioManager.name != null)
@@ -143,7 +143,7 @@ public class SceneManager : MonoBehaviour {
 		}
 		else
 		{
-			Debug.LogWarning("AudioManager already exists");
+			//Debug.LogWarning("AudioManager already exists");
 		}
 	}
 	
@@ -151,7 +151,7 @@ public class SceneManager : MonoBehaviour {
 	{
 		if(GameObject.FindGameObjectWithTag("GameLight") == null)
 		{
-			Debug.LogWarning("Loading GameLight");
+			//Debug.LogWarning("Loading GameLight");
 			gameLight = Instantiate(Resources.Load("GameLight")) as GameObject;
 			
 			if(gameLight.name != null)

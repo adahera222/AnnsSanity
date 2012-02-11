@@ -29,7 +29,7 @@ public class AnnasRoom : SceneManager {
 	{
 		if(GameObject.FindGameObjectWithTag("Player") == null)
 		{
-			Debug.LogWarning("Loading Anna");
+			//Debug.LogWarning("Loading Anna");
 			GameObject player = Instantiate(Resources.Load("Player")) as GameObject;
 			
 			if (player != null)
@@ -44,7 +44,7 @@ public class AnnasRoom : SceneManager {
 		}
 		else
 		{
-			Debug.LogWarning("Anna Already Exist");
+			//Debug.LogWarning("Anna Already Exist");
 		}
 	}
 }
