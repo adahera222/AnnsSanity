@@ -25,6 +25,7 @@ public class GameCamera : MonoBehaviour {
 	// Use this for initialization
 	IEnumerator Start () 
 	{
+		
 		if(follow)
 		{
 //			follow = false;
