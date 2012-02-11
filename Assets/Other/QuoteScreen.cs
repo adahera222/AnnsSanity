@@ -51,32 +51,34 @@ public class QuoteScreen : MonoBehaviour {
 	{
 		TimeManagment.isTimePaused = true;
 		
-		yield return new WaitForSeconds(1.5f);
 		try
 		{
-			player = GameObject.FindGameObjectWithTag("Player").GetComponent<CrazyBastard>();
-		}
-		catch(System.Exception)
-		{
-			Debug.LogWarning("Cannot find player");
-		}
-		
-		try
-		{
-			inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();	
+			inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+			if(inventory && inventory.ShowInterface)
+			{
+				inventory.ToggleInterface();
+			}
 		}
 		catch(System.Exception)
 		{
 			Debug.LogWarning("Cannot find inventory");
 		}
 		
-		if(player)
-		player.EnableMove = false;
+		yield return new WaitForSeconds(1.5f);
 		
-		if(inventory && inventory.ShowInterface)
+		try
 		{
-			inventory.ToggleInterface();
+			player = GameObject.FindGameObjectWithTag("Player").GetComponent<CrazyBastard>();
+			
+			if(player)
+			player.EnableMove = false;
+			
 		}
+		catch(System.Exception)
+		{
+			Debug.LogWarning("Cannot find player");
+		}
+		
 		yield return new WaitForSeconds(animation["QuoteAnimation"].length - 1.75f);
 		
 		if(player)
