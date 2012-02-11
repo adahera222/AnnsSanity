@@ -165,17 +165,5 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 	
-	void OnLevelWasLoaded(int x)
-	{
-		if(x < 8)
-		{
-			Debug.Log("Unselecting items");
-			foreach(Slot s in SlotList)
-			{
-				s.UnselectItem();
-			}
-		}
-	}
-	
 	#endregion
 }
